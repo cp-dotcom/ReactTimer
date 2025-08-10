@@ -18,12 +18,24 @@ function App() {
     clearInterval(ref.current)
     setRunning(false)
   }
+
+
+  function back(){
+    if(running){
+      ref.current=setInterval(()=>{
+        setSecond(prev=>prev -1)
+      },1000)
+    }
+    setRunning(true)
+
+  }
   return (
     <div>
       <h1>timer</h1>
       <h1>{second}</h1>
       <button onClick={start}>start</button>
       <button onClick={pause}>pause</button>
+      <button onClick={back}>back</button>
       
     </div>
   )
